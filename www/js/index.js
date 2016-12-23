@@ -6,10 +6,11 @@ var app = {
 
     onDeviceReady: function () {
         bluetoothSerial.isEnabled(app.listPairedDevices, function () {
-            app.showError('Enable bluetooth, please')
+            app.showError('Enable bluetooth')
         });
 
         $('#paired-devices button').click(app.listPairedDevices);
+        $('#paired-devices form').submit(app.selectDevice);
     },
 
     listPairedDevices: function () {
@@ -29,6 +30,36 @@ var app = {
             });
 
         }, app.showError);
+    },
+
+    selectDevice: function (event) {
+        event.preventDefault();
+
+        var $label = $('#paired-devices input[name=device]:checked').parent();
+
+        var name = $label.find('.name').text();
+        var address = $label.find('input').val();
+
+        if (!address) {
+            app.showError('Select paired device to connect');
+            return;
+        }
+
+        var $selectedDevice = $('#selected-device');
+
+        $selectedDevice.find('.name').text(name);
+        $selectedDevice.find('.address').text(address);
+        $selectedDevice.find('.status').text('Connecting...');
+
+        // Attempt to connect device with specified address, call app.deviceConnected if success
+        bluetoothSerial.connect(address, app.deviceConnected, function (error) {
+            $selectedDevice.find('.status').text('Disconnected');
+            app.showError(error);
+        });
+    },
+
+    deviceConnected: function () {
+        $('#selected-device .status').text('Connected');
     },
 
     showError: function (error) {

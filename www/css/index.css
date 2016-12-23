@@ -1,5 +1,5 @@
 body {
-    font-size: 150%;
+    font-size: 125%;
 }
 
 button, input {
@@ -8,4 +8,10 @@ button, input {
 
 label {
     display: block;
+}
+
+.panel {
+    border: 1px solid rgba(0, 0, 0, .12);
+    margin: .5em;
+    padding: .5em;
 }

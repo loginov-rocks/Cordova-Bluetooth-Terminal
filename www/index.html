@@ -15,12 +15,21 @@
 </head>
 <body>
 
-<div id="paired-devices">
+<div id="paired-devices" class="panel">
     <div class="headline">
         Paired devices
         <button>Refresh</button>
     </div>
-    <div class="list"></div>
+    <form>
+        <div class="list"></div>
+        <input type="submit" value="Connect">
+    </form>
+</div>
+
+<div id="selected-device" class="panel">
+    <div class="name"></div>
+    <div class="address"></div>
+    <div class="status"></div>
 </div>
 
 <script type="text/javascript" src="cordova.js"></script>
