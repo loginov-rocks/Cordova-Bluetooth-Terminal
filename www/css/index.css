@@ -2,7 +2,7 @@ body {
     font-size: 125%;
 }
 
-button, input {
+button, input, textarea {
     font-size: 100%;
 }
 
@@ -14,4 +14,12 @@ label {
     border: 1px solid rgba(0, 0, 0, .12);
     margin: .5em;
     padding: .5em;
+}
+
+#data .container {
+    background: rgba(0, 0, 0, .12);
+    font-family: monospace;
+    max-height: 90vh;
+    overflow: auto;
+    white-space: pre;
 }

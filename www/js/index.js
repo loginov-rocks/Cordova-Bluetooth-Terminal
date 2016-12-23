@@ -47,7 +47,6 @@ var app = {
         }
 
         var $selectedDevice = $('#selected-device');
-
         $selectedDevice.find('.name').text(name);
         $selectedDevice.find('.address').text(address);
 
@@ -86,15 +85,31 @@ var app = {
     },
 
     deviceConnected: function () {
+        // Subscribe to data receiving as soon as the delimiter is read
+        bluetoothSerial.subscribe('\n', app.handleData, app.showError);
+
         var $selectedDevice = $('#selected-device');
         $selectedDevice.find('.status').text('Connected');
         $selectedDevice.find('button').text('Disconnect');
     },
 
     deviceDisconnected: function () {
+        // Unsubscribe from data receiving
+        bluetoothSerial.unsubscribe(app.handleData, app.showError);
+
         var $selectedDevice = $('#selected-device');
         $selectedDevice.find('.status').text('Disconnected');
         $selectedDevice.find('button').text('Connect');
+    },
+
+    handleData: function (data) {
+        var $dataContainer = $('#data .container');
+
+        $dataContainer.append(data);
+
+        if ($('#data input[name=autoscroll]').is(':checked')) {
+            $dataContainer.scrollTop($dataContainer[0].scrollHeight - $dataContainer.height());
+        }
     },
 
     showError: function (error) {
