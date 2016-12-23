@@ -3,6 +3,10 @@
 Simple app for communication with devices via bluetooth based on Apache Cordova (PhoneGap). It was made to fetch data
 from one of IoT (Internet of Things) device, so it's source code can be helpful as a base for your own project.
 
+At the moment app can only receive data and looks like this:
+
+![Serial bridge](https://raw.githubusercontent.com/1oginov/Cordova-Bluetooth-Terminal/master/misc/screenshot-2016-12-23.png)
+
 ## Quick Start
 
 Make sure you have [cordova-cli](https://github.com/apache/cordova-cli) installed globally, install with the help of
@@ -62,3 +66,9 @@ Arduino Uno as mentioned there, upload script, open Serial Monitor on PC and pai
 Open Terminal app, select paired device, connect to it and now whatever you send in Serial Monitor on PC will appear in
 app and vice versa. Because of using SoftwareSerial this script is not reliable at all, some symbols can be skipped,
 etc. So... buy Mega! Or STM32.
+
+## History
+
+### December 23, 2016
+
+First release

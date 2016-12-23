@@ -1,25 +1,76 @@
+/**
+ * Created by Danila Loginov, December 23, 2016
+ * https://github.com/1oginov/Cordova-Bluetooth-Terminal
+ */
+
+html {
+    height: 100%;
+}
+
 body {
-    font-size: 125%;
+    background: #00BCD4;
+    color: #FFF;
+    font-size: 150%;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    line-height: 150%;
+    position: relative;
 }
 
 button, input, textarea {
     font-size: 100%;
 }
 
-label {
+.state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    overflow: auto;
+}
+
+.state > * {
+    padding: 1em;
+}
+
+/* Paired devices state */
+
+#paired-devices .list label {
     display: block;
 }
 
-.panel {
-    border: 1px solid rgba(0, 0, 0, .12);
-    margin: .5em;
-    padding: .5em;
+#paired-devices .list label div {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-#data .container {
-    background: rgba(0, 0, 0, .12);
+#paired-devices .list label div span {
+    display: block;
+}
+
+#paired-devices .list label .address {
+    color: rgba(255, 255, 255, .5);
+}
+
+/* Terminal state */
+
+#selected-device .address {
+    color: rgba(255, 255, 255, .5);
+}
+
+#data {
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    flex-grow: 1;
     font-family: monospace;
-    max-height: 90vh;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: scroll;
     white-space: pre;
 }

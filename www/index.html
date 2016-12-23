@@ -15,27 +15,39 @@
 </head>
 <body>
 
-<div id="paired-devices" class="panel">
+<div id="paired-devices" class="state">
+
     <div class="headline">
         Paired devices
-        <button>Refresh</button>
+        <button id="refresh-paired-devices">Refresh</button>
     </div>
+
     <form>
         <div class="list"></div>
         <input type="submit" name="connect" value="Connect">
     </form>
+
 </div>
 
-<div id="selected-device" class="panel">
-    <div class="name"></div>
-    <div class="address"></div>
-    <div class="status"></div>
-    <button></button>
-</div>
+<div id="terminal" class="state">
 
-<div id="data" class="panel">
-    <div class="container"></div>
-    <label><input type="checkbox" name="autoscroll" value="1" checked> Auto scroll</label>
+    <div id="selected-device">
+        <button class="go-back">Back</button>
+
+        <span class="name"></span>
+        <span class="address"></span>
+        <span class="status"></span>
+
+        <button id="toggle-connection"></button>
+    </div>
+
+    <div id="data"></div>
+
+    <div>
+        <label><input type="checkbox" name="autoscroll" value="1" checked> Auto scroll</label>
+        <button id="clear-data">Clear</button>
+    </div>
+
 </div>
 
 <script type="text/javascript" src="cordova.js"></script>

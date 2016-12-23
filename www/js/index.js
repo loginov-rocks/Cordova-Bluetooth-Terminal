@@ -1,3 +1,8 @@
+/**
+ * Created by Danila Loginov, December 23, 2016
+ * https://github.com/1oginov/Cordova-Bluetooth-Terminal
+ */
+
 'use strict';
 
 var app = {
@@ -7,13 +12,20 @@ var app = {
     },
 
     onDeviceReady: function () {
+        app.goTo('paired-devices');
+
         bluetoothSerial.isEnabled(app.listPairedDevices, function () {
             app.showError('Enable bluetooth')
         });
 
-        $('#paired-devices button').click(app.listPairedDevices);
+        $('#refresh-paired-devices').click(app.listPairedDevices);
         $('#paired-devices form').submit(app.selectDevice);
-        $('#selected-device button').click(app.toggleConnection);
+        $('#toggle-connection').click(app.toggleConnection);
+        $('#clear-data').click(app.clearData);
+
+        $('#terminal .go-back').click(function () {
+            app.goTo('paired-devices');
+        });
     },
 
     listPairedDevices: function () {
@@ -28,8 +40,8 @@ var app = {
             $list.text('');
             devices.forEach(function (device) {
                 $list.append('<label><input type="radio" name="device" value="' + device.address +
-                    '"><span class="name">' + device.name + '</span> <span class="address">' + device.address +
-                    '</span></label>');
+                    '"><div><span class="name">' + device.name + '</span> <span class="address">' + device.address +
+                    '</span></div></label>');
             });
 
         }, app.showError);
@@ -38,7 +50,7 @@ var app = {
     selectDevice: function (event) {
         event.preventDefault();
 
-        var $label = $('#paired-devices input[name=device]:checked').parent();
+        var $label = $('#paired-devices .list input[name=device]:checked').parent();
 
         var name = $label.find('.name').text();
         var address = $label.find('input').val();
@@ -47,6 +59,8 @@ var app = {
             app.showError('Select paired device to connect');
             return;
         }
+
+        app.goTo('terminal');
 
         var $selectedDevice = $('#selected-device');
         $selectedDevice.find('.name').text(name);
@@ -68,6 +82,7 @@ var app = {
 
                 if (!address) {
                     app.showError('Select paired device to connect');
+                    app.goTo('paired-devices');
                     return;
                 }
 
@@ -90,28 +105,35 @@ var app = {
         // Subscribe to data receiving as soon as the delimiter is read
         bluetoothSerial.subscribe('\n', app.handleData, app.showError);
 
-        var $selectedDevice = $('#selected-device');
-        $selectedDevice.find('.status').text('Connected');
-        $selectedDevice.find('button').text('Disconnect');
+        $('#selected-device .status').text('Connected');
+        $('#toggle-connection').text('Disconnect');
     },
 
     deviceDisconnected: function () {
         // Unsubscribe from data receiving
         bluetoothSerial.unsubscribe(app.handleData, app.showError);
 
-        var $selectedDevice = $('#selected-device');
-        $selectedDevice.find('.status').text('Disconnected');
-        $selectedDevice.find('button').text('Connect');
+        $('#selected-device .status').text('Disconnected');
+        $('#toggle-connection').text('Connect');
     },
 
     handleData: function (data) {
-        var $dataContainer = $('#data .container');
+        var $dataContainer = $('#data');
 
         $dataContainer.append(data);
 
-        if ($('#data input[name=autoscroll]').is(':checked')) {
+        if ($('#terminal input[name=autoscroll]').is(':checked')) {
             $dataContainer.scrollTop($dataContainer[0].scrollHeight - $dataContainer.height());
         }
+    },
+
+    clearData: function () {
+        $('#data').text('');
+    },
+
+    goTo: function (state) {
+        $('.state').hide();
+        $('#' + state + '.state').show();
     },
 
     showError: function (error) {
