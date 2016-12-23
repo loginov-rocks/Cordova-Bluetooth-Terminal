@@ -119,13 +119,7 @@ var app = {
     },
 
     handleData: function (data) {
-        var $dataContainer = $('#data');
-
-        $dataContainer.append(data);
-
-        if ($('#terminal input[name=autoscroll]').is(':checked')) {
-            $dataContainer.scrollTop($dataContainer[0].scrollHeight - $dataContainer.height());
-        }
+        app.displayInTerminal(data, true);
     },
 
     sendData: function (event) {
@@ -137,7 +131,26 @@ var app = {
 
         data += '\n';
 
+        app.displayInTerminal(data, false);
+
         bluetoothSerial.write(data, null, app.showError);
+    },
+
+    displayInTerminal: function (data, isIncoming) {
+        var $dataContainer = $('#data');
+
+        if (isIncoming) {
+            data = '<span class="in">' + data + '</span>';
+        }
+        else {
+            data = '<span class="out">' + data + '</span>';
+        }
+
+        $dataContainer.append(data);
+
+        if ($('#terminal input[name=autoscroll]').is(':checked')) {
+            $dataContainer.scrollTop($dataContainer[0].scrollHeight - $dataContainer.height());
+        }
     },
 
     clearData: function () {

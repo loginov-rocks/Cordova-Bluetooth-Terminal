@@ -75,6 +75,14 @@ button, input, textarea {
     white-space: pre;
 }
 
+#data .in {
+    color: #F0F4C3;
+}
+
+#data .out {
+    color: #F8BBD0;
+}
+
 #terminal form {
     display: flex;
 }

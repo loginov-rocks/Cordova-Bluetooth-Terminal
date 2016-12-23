@@ -3,7 +3,8 @@
 Simple app for communication with devices via bluetooth based on Apache Cordova (PhoneGap). It was made to fetch data
 from one of IoT (Internet of Things) device, so it's source code can be helpful as a base for your own project.
 
-![Serial bridge](https://raw.githubusercontent.com/1oginov/Cordova-Bluetooth-Terminal/master/misc/screenshot-2016-12-23.png)
+![Paired devices screenshot](https://raw.githubusercontent.com/1oginov/Cordova-Bluetooth-Terminal/master/misc/Paired-devices-screenshot.png)
+![Terminal screenshot](https://raw.githubusercontent.com/1oginov/Cordova-Bluetooth-Terminal/master/misc/Terminal-screenshot.png)
 
 ## Quick Start
 
@@ -48,6 +49,11 @@ Emulator is useless here, because you need working bluetooth module.
 * [Reset CSS](http://meyerweb.com/eric/tools/css/reset/)
 
 ## Tests
+
+## Android APK
+
+You can try android build from [here](https://github.com/1oginov/Cordova-Bluetooth-Terminal/blob/master/misc/android-build/android-debug.apk)
+without installing anything.
 
 ### With Arduino Uno
 
