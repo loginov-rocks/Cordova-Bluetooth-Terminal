@@ -10,7 +10,7 @@ html {
 body {
     background: #00BCD4;
     color: #FFF;
-    font-size: 150%;
+    font-size: 125%;
     font-family: 'Roboto', sans-serif;
     height: 100%;
     line-height: 150%;
@@ -37,7 +37,7 @@ button, input, textarea {
 }
 
 .state > * {
-    padding: 1em;
+    padding: .5em 1em;
 }
 
 /* Paired devices state */
@@ -73,4 +73,12 @@ button, input, textarea {
     overflow-x: auto;
     overflow-y: scroll;
     white-space: pre;
+}
+
+#terminal form {
+    display: flex;
+}
+
+#terminal form input[type=text] {
+    min-width: 0;
 }

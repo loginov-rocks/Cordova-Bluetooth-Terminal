@@ -3,8 +3,6 @@
 Simple app for communication with devices via bluetooth based on Apache Cordova (PhoneGap). It was made to fetch data
 from one of IoT (Internet of Things) device, so it's source code can be helpful as a base for your own project.
 
-At the moment app can only receive data and looks like this:
-
 ![Serial bridge](https://raw.githubusercontent.com/1oginov/Cordova-Bluetooth-Terminal/master/misc/screenshot-2016-12-23.png)
 
 ## Quick Start

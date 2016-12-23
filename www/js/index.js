@@ -22,6 +22,7 @@ var app = {
         $('#paired-devices form').submit(app.selectDevice);
         $('#toggle-connection').click(app.toggleConnection);
         $('#clear-data').click(app.clearData);
+        $('#terminal form').submit(app.sendData);
 
         $('#terminal .go-back').click(function () {
             app.goTo('paired-devices');
@@ -125,6 +126,18 @@ var app = {
         if ($('#terminal input[name=autoscroll]').is(':checked')) {
             $dataContainer.scrollTop($dataContainer[0].scrollHeight - $dataContainer.height());
         }
+    },
+
+    sendData: function (event) {
+        event.preventDefault();
+
+        var $input = $('#terminal form input[name=data]');
+        var data = $input.val();
+        $input.val('');
+
+        data += '\n';
+
+        bluetoothSerial.write(data, null, app.showError);
     },
 
     clearData: function () {
