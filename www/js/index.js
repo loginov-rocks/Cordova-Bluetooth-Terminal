@@ -11,6 +11,7 @@ var app = {
 
         $('#paired-devices button').click(app.listPairedDevices);
         $('#paired-devices form').submit(app.selectDevice);
+        $('#selected-device button').click(app.toggleConnection);
     },
 
     listPairedDevices: function () {
@@ -49,17 +50,51 @@ var app = {
 
         $selectedDevice.find('.name').text(name);
         $selectedDevice.find('.address').text(address);
-        $selectedDevice.find('.status').text('Connecting...');
+
+        app.connect(address);
+    },
+
+    toggleConnection: function () {
+        bluetoothSerial.isConnected(
+            // Disconnect if connected
+            function () {
+                bluetoothSerial.disconnect(app.deviceDisconnected, app.showError);
+            },
+
+            // Reconnect to selected device if disconnected
+            function () {
+                var address = $('#selected-device .address').text();
+
+                if (!address) {
+                    app.showError('Select paired device to connect');
+                    return;
+                }
+
+                app.connect(address);
+            }
+        );
+    },
+
+    connect: function (address) {
+        $('#selected-device .status').text('Connecting...');
 
         // Attempt to connect device with specified address, call app.deviceConnected if success
         bluetoothSerial.connect(address, app.deviceConnected, function (error) {
-            $selectedDevice.find('.status').text('Disconnected');
+            $('#selected-device .status').text('Disconnected');
             app.showError(error);
         });
     },
 
     deviceConnected: function () {
-        $('#selected-device .status').text('Connected');
+        var $selectedDevice = $('#selected-device');
+        $selectedDevice.find('.status').text('Connected');
+        $selectedDevice.find('button').text('Disconnect');
+    },
+
+    deviceDisconnected: function () {
+        var $selectedDevice = $('#selected-device');
+        $selectedDevice.find('.status').text('Disconnected');
+        $selectedDevice.find('button').text('Connect');
     },
 
     showError: function (error) {
