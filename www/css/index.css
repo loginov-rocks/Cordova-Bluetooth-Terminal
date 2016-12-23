@@ -1,3 +1,11 @@
-#event {
-    font-weight: bolder;
+body {
+    font-size: 150%;
+}
+
+button, input {
+    font-size: 100%;
+}
+
+label {
+    display: block;
 }

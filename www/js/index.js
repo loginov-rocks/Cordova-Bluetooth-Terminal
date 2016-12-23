@@ -1,22 +1,38 @@
 var app = {
 
-    // Application Constructor
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
     onDeviceReady: function () {
-        this.receivedEvent('deviceready');
+        bluetoothSerial.isEnabled(app.listPairedDevices, function () {
+            app.showError('Enable bluetooth, please')
+        });
+
+        $('#paired-devices button').click(app.listPairedDevices);
     },
 
-    // Update DOM on a Received Event
-    receivedEvent: function (id) {
-        $('#event').text(id);
-        console.log('Received Event: ' + id);
+    listPairedDevices: function () {
+        bluetoothSerial.list(function (devices) {
+            var $list = $('#paired-devices .list');
+
+            if (!devices.length) {
+                $list.text('Not found');
+                return;
+            }
+
+            $list.text('');
+            devices.forEach(function (device) {
+                $list.append('<label><input type="radio" name="device" value="' + device.address +
+                    '"><span class="name">' + device.name + '</span> <span class="address">' + device.address +
+                    '</span></label>');
+            });
+
+        }, app.showError);
+    },
+
+    showError: function (error) {
+        alert(error);
     }
 
 };
