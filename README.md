@@ -50,7 +50,7 @@ Emulator is useless here, because you need working bluetooth module.
 
 ## Tests
 
-## Android APK
+### Android APK
 
 You can try android build from [here](https://github.com/1oginov/Cordova-Bluetooth-Terminal/blob/master/misc/android-build/android-debug.apk)
 without installing anything.
