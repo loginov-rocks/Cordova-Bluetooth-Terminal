@@ -8,8 +8,8 @@ from one of IoT (Internet of Things) device, so it's source code can be helpful 
 
 ## Quick Start
 
-Make sure you have [cordova-cli](https://github.com/apache/cordova-cli) installed globally, install with the help of
-[npm](http://nodejs.org/) otherwise:
+Make sure you have [cordova-cli](https://cordova.apache.org/) installed globally, install with the help of
+[npm](https://www.npmjs.com/) otherwise:
 
 ```sh
 $ npm install -g cordova
@@ -44,7 +44,7 @@ $ cordova run
 Emulator is useless here, because you need working bluetooth module.
 
 ## Used
-* [BluetoothSerial](https://github.com/don/BluetoothSerial) Cordova plugin
+* [BluetoothSerial](https://github.com/don/BluetoothSerial/) Cordova plugin
 * [jQuery 3.1.1](https://jquery.com/)
 * [Reset CSS](http://meyerweb.com/eric/tools/css/reset/)
 
