@@ -1,7 +1,22 @@
 {
     "name": "com.example.hello",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "displayName": "Cordova Bluetooth Terminal",
+    "description": "Simple app for communication with devices via bluetooth",
+    "keywords": [
+        "cordova",
+        "bluetooth",
+        "terminal",
+        "serial"
+    ],
+    "homepage": "https://github.com/1oginov/Cordova-Bluetooth-Terminal",
+    "bugs": "https://github.com/1oginov/Cordova-Bluetooth-Terminal/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/1oginov/Cordova-Bluetooth-Terminal.git"
+    },
+    "license": "MIT",
+    "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
     "cordova": {
         "platforms": [
             "android"
