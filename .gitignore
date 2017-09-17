@@ -1,3 +1,4 @@
-/.idea/
-/platforms/
-/plugins/
+.idea/
+node_modules/
+platforms/
+plugins/
