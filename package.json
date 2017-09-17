@@ -12,8 +12,8 @@
         }
     },
     "dependencies": {
-        "cordova-android": "~6.0.0",
-        "cordova-plugin-bluetooth-serial": "~0.4.6",
-        "cordova-plugin-whitelist": "1"
+        "cordova-android": "^5.0.0",
+        "cordova-plugin-bluetooth-serial": "^0.4.7",
+        "cordova-plugin-whitelist": "^1.3.2"
     }
 }
