@@ -3,7 +3,7 @@
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Cordova Bluetooth Terminal</name>
     <description>Simple app for communication with devices via bluetooth</description>
-    <author email="loginovdanila@gmail.com" href="https://loginov.rocks">Danila Loginov</author>
+    <author email="danila@loginov.rocks" href="https://loginov.rocks">Danila Loginov</author>
     <content src="index.html"/>
     <plugin name="cordova-plugin-whitelist" spec="1"/>
     <access origin="*"/>
