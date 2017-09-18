@@ -1,5 +1,7 @@
 # Cordova Bluetooth Terminal
 
+[![dependencies Status](https://david-dm.org/1oginov/Cordova-Bluetooth-Terminal/status.svg)](https://david-dm.org/1oginov/Cordova-Bluetooth-Terminal)
+
 Simple app for communication with devices via bluetooth based on Apache Cordova (PhoneGap). It was made to fetch data
 from one of IoT (Internet of Things) device, so it's source code can be helpful as a base for your own project.
 
@@ -70,9 +72,3 @@ Arduino Uno as mentioned there, upload script, open Serial Monitor on PC and pai
 Open Terminal app, select paired device, connect to it and now whatever you send in Serial Monitor on PC will appear in
 app and vice versa. Because of using SoftwareSerial this script is not reliable at all, some symbols can be skipped,
 etc. So... buy Mega! Or STM32.
-
-## History
-
-### December 23, 2016
-
-First release
