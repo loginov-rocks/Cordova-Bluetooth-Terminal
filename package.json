@@ -1,6 +1,6 @@
 {
-    "name": "com.example.hello",
-    "version": "1.1.0",
+    "name": "cordova-bluetooth-terminal",
+    "version": "1.1.1",
     "displayName": "Cordova Bluetooth Terminal",
     "description": "Simple app for communication with devices via bluetooth",
     "keywords": [
@@ -27,7 +27,7 @@
         }
     },
     "dependencies": {
-        "cordova-android": "^5.0.0",
+        "cordova-android": "^6.2.3",
         "cordova-plugin-bluetooth-serial": "^0.4.7",
         "cordova-plugin-whitelist": "^1.3.2"
     }
