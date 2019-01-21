@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/loginov-rocks/Cordova-Bluetooth-Terminal",
   "dependencies": {
-    "cordova-android": "^6.2.3",
+    "cordova-android": "^6.4.0",
     "cordova-plugin-bluetooth-serial": "^0.4.7",
-    "cordova-plugin-whitelist": "^1.3.2"
+    "cordova-plugin-whitelist": "^1.3.3"
   },
   "cordova": {
     "platforms": [
