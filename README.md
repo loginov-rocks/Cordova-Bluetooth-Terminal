@@ -1,7 +1,5 @@
 # Cordova Bluetooth Terminal
 
-[![dependencies Status](https://david-dm.org/loginov-rocks/Cordova-Bluetooth-Terminal/status.svg)](https://david-dm.org/loginov-rocks/Cordova-Bluetooth-Terminal)
-
 Simple app for communication with devices via bluetooth based on Apache Cordova (PhoneGap). It was made to fetch data
 from one of IoT (Internet of Things) device, so it's source code can be helpful as a base for your own project.
 
