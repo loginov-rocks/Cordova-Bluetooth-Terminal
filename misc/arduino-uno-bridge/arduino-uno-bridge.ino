@@ -1,7 +1,5 @@
 /**
  * Bridge script for Arduino Uno using SoftwareSerial
- * Created by Danila Loginov, December 23, 2016
- * https://github.com/1oginov/Cordova-Bluetooth-Terminal
  *
  * Wire bluetooth module to Arduino Uno as mentioned below, upload script, open Serial Monitor on PC and pair smartphone
  * with BT module. Open Terminal app, select paired device, connect to it and now whatever you send in Serial Monitor on
